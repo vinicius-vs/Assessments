@@ -10,6 +10,5 @@ namespace Data.Model
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Situation { get; set; }
     }
 }
