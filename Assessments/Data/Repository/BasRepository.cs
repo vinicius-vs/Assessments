@@ -15,6 +15,7 @@ namespace Data.Repository
             using (var context = new AssessmentsDb())
             {
                 context.Set<T>().Add(model);
+                context.SaveChanges();
             }
         }
         public List<T> Read()
@@ -34,11 +35,20 @@ namespace Data.Repository
             }
             return model;
         }
+        public void Update(int id)
+        {
+            using (var context = new AssessmentsDb())
+            {
+                context.Entry<T>(this.Read(id)).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
         public void Delete(int id)
         {
             using (var context = new AssessmentsDb())
             {
                 context.Entry<T>(this.Read(id)).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
             }
         }
     }
