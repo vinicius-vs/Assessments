@@ -18,20 +18,10 @@
                     })
                 .PrimaryKey(t => t.Id);
             
-            DropTable("dbo.Avaliations");
         }
         
         public override void Down()
         {
-            CreateTable(
-                "dbo.Avaliations",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Grade = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
             DropTable("dbo.Skills");
         }
     }
