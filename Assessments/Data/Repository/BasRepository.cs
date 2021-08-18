@@ -2,6 +2,7 @@
 using Data.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,11 +33,11 @@ namespace Data.Repository
                 return context.Set<T>().Find(id);
             }
         }
-        public virtual void Update(int id)
+        public virtual void Update(T model)
         {
             using (var context = new AssessmentsDb())
             {
-                context.Entry<T>(this.Read(id)).State = System.Data.Entity.EntityState.Modified;
+                context.Entry<T>(model).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
@@ -44,7 +45,7 @@ namespace Data.Repository
         {
             using (var context = new AssessmentsDb())
             {
-                context.Entry<T>(this.Read(id)).State = System.Data.Entity.EntityState.Deleted;
+                context.Entry<T>(this.Read(id)).State = EntityState.Deleted;
                 context.SaveChanges();
             }
         }
