@@ -2,6 +2,7 @@
 using Data.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace Data.Repository
 {
     public abstract class BaseRepository<T> where T : Base
     {
-        public void Create(T model)
+        public virtual void Create(T model)
         {
             using (var context = new AssessmentsDb())
             {
@@ -18,36 +19,33 @@ namespace Data.Repository
                 context.SaveChanges();
             }
         }
-        public List<T> Read()
+        public virtual List<T> Read()
         {
-            List<T> list = new List<T>();
             using (var context = new AssessmentsDb())
             {
-                return list = context.Set<T>().ToList();
+                return context.Set<T>().ToList();
             }
         }
-        public T Read(int id)
+        public virtual T Read(int id)
         {
-            T model = Activator.CreateInstance<T>();
             using (var context = new AssessmentsDb())
             {
-                model = context.Set<T>().Find(id);
+                return context.Set<T>().Find(id);
             }
-            return model;
         }
-        public void Update(int id)
+        public virtual void Update(T model)
         {
             using (var context = new AssessmentsDb())
             {
-                context.Entry<T>(this.Read(id)).State = System.Data.Entity.EntityState.Modified;
+                context.Entry<T>(model).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             using (var context = new AssessmentsDb())
             {
-                context.Entry<T>(this.Read(id)).State = System.Data.Entity.EntityState.Deleted;
+                context.Entry<T>(this.Read(id)).State = EntityState.Deleted;
                 context.SaveChanges();
             }
         }
