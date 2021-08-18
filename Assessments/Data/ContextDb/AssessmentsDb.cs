@@ -14,6 +14,7 @@ namespace Data.ContextDb
         public DbSet<Phase> Phase { get; set; }
         public DbSet<Skills> Skills { get; set; }
         public DbSet<Criteria> Criterias { get; set; }
+        public DbSet<Avaliation> Avaliation { get; set; }
         public AssessmentsDb() : base("Data Source=192.168.0.170;Initial Catalog=Assessments;Persist Security Info=True;User ID=Assessments;Password=projetox")
         {
                 
