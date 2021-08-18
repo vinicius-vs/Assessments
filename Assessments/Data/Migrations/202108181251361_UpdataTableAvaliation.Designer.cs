@@ -7,13 +7,13 @@ namespace Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class CreateTableAvaliation : IMigrationMetadata
+    public sealed partial class UpdataTableAvaliation : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateTableAvaliation));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdataTableAvaliation));
         
         string IMigrationMetadata.Id
         {
-            get { return "202108171943448_CreateTableAvaliation"; }
+            get { return "202108181251361_UpdataTableAvaliation"; }
         }
         
         string IMigrationMetadata.Source
