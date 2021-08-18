@@ -3,12 +3,10 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreateTableSituations : DbMigration
+    public partial class CreateTableSituation : DbMigration
     {
         public override void Up()
         {
-            
-
             CreateTable(
                 "dbo.Situations",
                 c => new
@@ -24,7 +22,6 @@
         public override void Down()
         {
             DropTable("dbo.Situations");
-            DropTable("dbo.Avaliations");
         }
     }
 }

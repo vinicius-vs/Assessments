@@ -9,5 +9,7 @@ namespace Data.Model
     public class Avaliation : Base
     {
         public int Grade { get; set; }
+
+        public Criteria Criteria { get; set; }
     }
 }
