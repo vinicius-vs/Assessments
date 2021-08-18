@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace Data.Repository
 {
     public class SkillRepository: BaseRepository<Skills>
-    {
-
+    { 
     }
 }
